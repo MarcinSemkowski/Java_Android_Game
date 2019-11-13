@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     // 2 means un played;
 
+    boolean gameIsActive = true;
+
     int[] gameState = {2,2,2,2,2,2,2,2,2};
     int[][] winningPositions = {{0,1,2},{3,4,5} ,{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
 
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         int tappedCounter = Integer.parseInt(counter.getTag().toString());
 
-        if(gameState[tappedCounter] == 2) {
+        if(gameState[tappedCounter] == 2 && gameIsActive) {
 
             gameState[tappedCounter] = activePlayer;
             counter.setTranslationY(-1000f);
@@ -55,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
                  TextView text = findViewById(R.id.winnerMessage);
                  if(gameState[winningPosition[0]] == 1){
                   text.setText("red Win !");
+                  gameIsActive = false;
                  }else if(gameState[winningPosition[0]] == 0){
                      text.setText("Yellow Win !");
+                     gameIsActive = false;
                  }
 
 
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playAgain(View view){
+        gameIsActive = true;
         LinearLayout layout =   findViewById(R.id.playAgainLayout);
         layout.setVisibility(View.INVISIBLE);
 
