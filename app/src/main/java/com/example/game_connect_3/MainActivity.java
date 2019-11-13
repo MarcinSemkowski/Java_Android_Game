@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     // 0 = yellow , 1= red
@@ -47,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
                   && gameState[winningPosition[0]] != 2){
 
                  System.out.println(gameState[winningPosition[0]]);
+                 //win!
+
+                 TextView text = findViewById(R.id.winnerMessage);
+                 if(gameState[winningPosition[0]] == 1){
+                  text.setText("red Win !");
+                 }else if(gameState[winningPosition[0]] == 0){
+                     text.setText("Yellow Win !");
+                 }
+
 
                  LinearLayout layout =   findViewById(R.id.playAgainLayout);
                  layout.setVisibility(View.VISIBLE);
