@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
             counter.animate()
                     .translationYBy(1000f)
                     .setDuration(300);
+
+            TextView text = findViewById(R.id.winnerMessage);
+            LinearLayout layout =   findViewById(R.id.playAgainLayout);
          for(int[] winningPosition : winningPositions){
 
              if(gameState[winningPosition[0]] == gameState[winningPosition[1]]
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                  System.out.println(gameState[winningPosition[0]]);
                  //win!
 
-                 TextView text = findViewById(R.id.winnerMessage);
+
                  if(gameState[winningPosition[0]] == 1){
                   text.setText("red Win !");
                   gameIsActive = false;
@@ -64,11 +67,22 @@ public class MainActivity extends AppCompatActivity {
                  }
 
 
-                 LinearLayout layout =   findViewById(R.id.playAgainLayout);
                  layout.setVisibility(View.VISIBLE);
              }
          }
+         boolean isFull = false;
+         for(int i = 0; i < gameState.length; i++){
+            if(gameState[i] != 2){
+                isFull = true;
+            }else{
+                isFull = false;
+            }
+         }
+         if(isFull){
 
+             layout.setVisibility(View.VISIBLE);
+              text.setText("Fields  Full Play again ?");
+         }
         }
 
 
