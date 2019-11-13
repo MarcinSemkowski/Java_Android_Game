@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
     // 0 = yellow , 1= red
@@ -67,6 +69,47 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    public void playAgain(View view){
+        LinearLayout layout =   findViewById(R.id.playAgainLayout);
+        layout.setVisibility(View.INVISIBLE);
+
+        activePlayer = 0;
+        for(int i =0; i < gameState.length; i++) {
+            gameState[i] = 2;
+        }
+        ImageView image0 = findViewById(R.id.image0);
+        image0.setImageResource(0);
+
+        ImageView image1 = findViewById(R.id.image1);
+        image1.setImageResource(0);
+
+        ImageView image2 = findViewById(R.id.image2);
+        image2.setImageResource(0);
+
+        ImageView image3 = findViewById(R.id.image3);
+        image3.setImageResource(0);
+
+        ImageView image4 = findViewById(R.id.image4);
+        image4.setImageResource(0);
+
+        ImageView image5 = findViewById(R.id.image5);
+        image5.setImageResource(0);
+
+        ImageView image6 = findViewById(R.id.image6);
+        image6.setImageResource(0);
+
+        ImageView image7 = findViewById(R.id.image7);
+        image7.setImageResource(0);
+
+        ImageView image8 = findViewById(R.id.image8);
+        image8.setImageResource(0);
+
+    }
+
+
+
+
 
 
     @Override
