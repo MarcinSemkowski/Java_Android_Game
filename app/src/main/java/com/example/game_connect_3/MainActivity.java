@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
     // 0 = yellow , 1= red
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                   && gameState[winningPosition[0]] != 2){
 
                  System.out.println(gameState[winningPosition[0]]);
+
+                 LinearLayout layout =   findViewById(R.id.playAgainLayout);
+                 layout.setVisibility(View.VISIBLE);
              }
          }
 
